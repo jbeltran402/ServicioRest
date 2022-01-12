@@ -9,6 +9,8 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import modelo.Usuarios;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,7 +26,7 @@ public class ServerComandoWS {
         System.out.println("INICIANDO SERVER WS :" + PORT);
 
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
-        server.createContext("/api", new HttpHandlerApi());
+        server.createContext("/api/usuarios", new HttpHandlerApi());
         server.createContext("/api/ping", new HttpHandlerPing());
 
         server.setExecutor(null);
@@ -52,16 +54,12 @@ public class ServerComandoWS {
                     buf.append((char) b);
                 }
 
-                System.out.println("\n Resepcion de Venta - Json \n");
+                System.out.println("\n Resepcion de Usuario - Json \n");
                 JsonArray recepcionDatos = gson.fromJson(buf.toString(), JsonArray.class);
 
                 for (JsonElement jUsuarios : recepcionDatos) {
-                    Transaccion con = gson.fromJson(jUsuarios.toString(), Transaccion.class);
-                    if (Dao.verificarProducto(con.getVenta_id(), con.getPos_id()) == false) {
+                    Usuarios con = gson.fromJson(jUsuarios.toString(), Usuarios.class);
 
-                    }else{
-                        System.out.println("");
-                    }
                 }
 
                 JsonObject json = new JsonObject();
@@ -78,7 +76,6 @@ public class ServerComandoWS {
                 }
 
             } else {
-
                 JsonObject json = new JsonObject();
                 json.addProperty("success", false);
                 json.addProperty("mensaje", "ERROR AL CONECTAR");
@@ -110,7 +107,7 @@ public class ServerComandoWS {
                 String response = json.toString();
 
                 Headers respHeaders = t.getResponseHeaders();
-                respHeaders.add("content-type", "application/json/combustibles");
+                respHeaders.add("content-type", "application/json/ping");
                 t.sendResponseHeaders(200, response.getBytes("utf-8").length);
 
                 try (OutputStream os = t.getResponseBody()) {
