@@ -1,7 +1,7 @@
 # ServicioRest
 Aplicativo creado en **Java** el cual hace uso de **httpserver** y **Gson**,  quien recibe como parámetros los atributos del objeto empleado al ser invocado mediante el método POST.
 
-Posteriormente, verifica  los formatos de las fechas y a su vez  válida que los atributos no se encuentren vacíos, aunado a esto el aplicativo comprueba que el empleado sea mayor de edad. Una vez realizado este proceso se almacena la información en una base de datos **Mysql** de nombre **servicio_rest**.
+Posteriormente, verifica  los formatos de las fechas y a su vez  válida que los atributos no se encuentren vacíos, aunado a esto, el aplicativo comprueba que el empleado sea mayor de edad. Una vez realizado este proceso, se almacena la información en una base de datos **Mysql** de nombre **servicio_rest**.
 
 ------------
 
