@@ -5,7 +5,7 @@ Posteriormente, verifica  los formatos de las fechas y a su vez  válida que los
 
 ------------
 
-####Instalación
+### Instalación
 
 **1.** Clonar el repositorio.
 `git clone https://github.com/jbeltran402/ServicioRest.git`
@@ -45,7 +45,7 @@ CREATE TABLE servicio_rest.usuarios (
 
 ------------
 
-#### Recepción de parámetros
+### Recepción de parámetros
 
 El aplicativo captura los datos a través del método POST.
 
