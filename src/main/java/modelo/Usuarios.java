@@ -8,20 +8,20 @@ public class Usuarios {
     String tipoDocumento;
     String numerodocumento;
     Date fechaNacimiento;
-    Date fechaVinculación;
+    Date fechaVinculacion;
     String cargo;
     Double salario;
 
     public Usuarios() {
     }
 
-    public Usuarios(String nombres, String apellidos, String tipoDocumento, String numerodocumento, Date fechaNacimiento, Date fechaVinculación, String cargo, Double salario) {
+    public Usuarios(String nombres, String apellidos, String tipoDocumento, String numerodocumento, Date fechaNacimiento, Date fechaVinculacion, String cargo, Double salario) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoDocumento = tipoDocumento;
         this.numerodocumento = numerodocumento;
         this.fechaNacimiento = fechaNacimiento;
-        this.fechaVinculación = fechaVinculación;
+        this.fechaVinculacion = fechaVinculacion;
         this.cargo = cargo;
         this.salario = salario;
     }
@@ -66,12 +66,12 @@ public class Usuarios {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Date getFechaVinculación() {
-        return fechaVinculación;
+    public Date getFechaVinculacion() {
+        return fechaVinculacion;
     }
 
-    public void setFechaVinculación(Date fechaVinculación) {
-        this.fechaVinculación = fechaVinculación;
+    public void setFechaVinculacion(Date fechaVinculacion) {
+        this.fechaVinculacion = fechaVinculacion;
     }
 
     public String getCargo() {

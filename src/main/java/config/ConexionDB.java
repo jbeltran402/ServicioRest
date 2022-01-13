@@ -13,9 +13,9 @@ public class ConexionDB {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/servicio_rest","root","12345678");
-            System.out.println("conexion satisfactoria");
+            //System.out.println("conexion satisfactoria");
         } catch (ClassNotFoundException | SQLException e) {
-            System.err.println("Conexion erronea");
+            System.err.println( e +" -> Conexion erronea");
         }
         return conn;
     }
