@@ -24,8 +24,6 @@ public class IngresoUsuarios implements interfaces.IngresoUsuarios{
     Connection conn;
     PreparedStatement ps;
     ResultSet rs;
-
-
     LocalDate fechaActual = LocalDate.now();
     Fecha fecha = new Fecha();
 
@@ -71,25 +69,6 @@ public class IngresoUsuarios implements interfaces.IngresoUsuarios{
     }
 
     @Override
-    public boolean Desconectar() {
-        if (rs != null) {
-            try {
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        if (conn != null) {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return true;
-    }
-
-    @Override
     public List edad(Date fechaNacimiento) {
 
         LocalDate FechaNacimiento = LocalDate.parse(SimpleDateFormat.format(fechaNacimiento), DateTimeFormatter.ISO_LOCAL_DATE);
@@ -107,7 +86,7 @@ public class IngresoUsuarios implements interfaces.IngresoUsuarios{
 
     @Override
     public List tiempoDeVinculacion(Date fechaVinculacion) {
-        
+
         LocalDate FechaVinculacion = LocalDate.parse(SimpleDateFormat.format(fechaVinculacion), DateTimeFormatter.ISO_LOCAL_DATE);
         Period period = Period.between(fechaActual, FechaVinculacion);
         ArrayList<Fecha> list = new ArrayList<>();
@@ -116,5 +95,24 @@ public class IngresoUsuarios implements interfaces.IngresoUsuarios{
         list.add(fecha);
 
         return list;
+    }
+
+    @Override
+    public boolean Desconectar() {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
     }
 }
